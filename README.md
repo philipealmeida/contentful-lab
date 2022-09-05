@@ -1,1 +1,1 @@
-# contentful-lab
+# Contentful Lab App
