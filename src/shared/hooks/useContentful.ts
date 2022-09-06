@@ -1,11 +1,6 @@
-import { createClient, Entry } from "contentful"
+import { createClient } from "contentful"
+import { Shoes, Fields } from "../types";
 
-type Shoes = {
-  name: string;
-  description: string;
-  price: number;
-  avatar: string;
-}
 export const useContentful = () => {
   const client = createClient({
     space: `${import.meta.env.VITE_CONTENTFUL_SPACE_ID}`,
@@ -25,23 +20,26 @@ export const useContentful = () => {
     }
   }
 
+  function getFileUrl(fields: Fields): string {
+      return fields.image.fields.file.url;;
+  }
+
   const getShoes = async () => {
     try {
       const entries = await client.getEntries({
         content_type: "shoes",
         select: "fields",
-      })
-      const sanitize = entries.items.map((item) =>  {
-        const avatar = item.fields.image.fields.file.url;
-        const { name, description, price } = item.fields;
+      });
+      const sanitizedShoes = entries.items.map((item) => {
+        const { name, description, price } = item.fields as Fields;
         return {
           name,
           description,
           price,
-          avatar
+          avatar: getFileUrl((item.fields) as Fields)
         } as Shoes;
       });
-      return sanitize;
+      return sanitizedShoes;
     } catch (error) {
       throw new Error(JSON.stringify(error));
     }

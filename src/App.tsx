@@ -1,18 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.scss'
 import { useContentful } from './shared/hooks/useContentful'
-
-type Shoes = {
-  name: string;
-  description: string;
-}
-
-type File = {
-  name: string;
-}
+import { Shoes } from './shared/types';
 
 function App() {
-  const [shoes, setShoes] = useState([]);
+  const [shoes, setShoes] = useState<null | Shoes[]>(null);
   const { getShoes } = useContentful();
 
   useEffect(() => {
