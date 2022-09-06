@@ -1,0 +1,32 @@
+header {
+  font-size: 0.7rem;
+  text-align: left;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+
+	h1,
+	h2 {
+		margin: 0;
+	}
+
+	h2 {
+		font-weight: 200;
+		font-size: 1.2rem;
+	}
+  a{
+    font-size: 1rem;
+    transition: 250ms ease;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  >.wrapper-brands,
+  >nav{
+    display: flex;
+    align-items: self-end;
+  }
+}
