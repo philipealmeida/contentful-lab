@@ -1,5 +1,5 @@
 import { createClient } from "contentful"
-import { Shoes, Fields, Sys4 } from "../types";
+import { Shoes, Fields, Sys4, Banner } from "../types";
 
 export const useContentful = () => {
   const client = createClient({
@@ -50,9 +50,31 @@ export const useContentful = () => {
     }
   };
 
+  const getHeroShoesBanner = async () => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "heroShoesBanner",
+        select: "fields",
+      });
+      console.table(entries);
+      const sanitized = entries.items.map((item) => {
+        const { title, link } = item.fields as Banner;
+        return {
+          title,
+          link,
+          image: getFileUrl((item.fields) as Fields)
+        } as Banner;
+      });
+      return sanitized;
+    } catch (error) {
+      throw new Error(JSON.stringify(error));
+    }
+  };
+
   return {
     client,
     getAuthors,
+    getHeroShoesBanner,
     getShoes
   };
 };

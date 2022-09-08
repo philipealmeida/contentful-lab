@@ -24,6 +24,12 @@ export type ImageFile = {
   title: string;
 }
 
+export type Banner = {
+  image: string;
+  title: string;
+  link?: string;
+}
+
 export type Fields = {
   name: string;
   description: string;
