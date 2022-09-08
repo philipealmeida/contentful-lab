@@ -6,10 +6,14 @@ import './PDP.scss';
 
 function PDP() {
   const { id } = useParams();
-  const { data } = useGraphQLContentful<{data: DataShoe}>
+  const { data, loading, error } = useGraphQLContentful<{data: DataShoe}>
     (queryShoeById(id || ''));
 
-  if (!data)
+  if (!data && loading)
+    return <div style={{ marginTop: '2rem' }}>
+      Loading product details...</div>
+
+  if (!data && error)
     return <div style={{ marginTop: '2rem' }}>
       Ops, error ocurred in get product detail.
       <Link to="/">Go to Catalog</Link></div>
