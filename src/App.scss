@@ -2,7 +2,7 @@
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 200;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -34,6 +34,17 @@ body {
 	min-height: 100vh;
 }
 
+img{
+	max-width: 100%;
+}
+
+a{
+	color: inherit;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	a {
 		&:nth-of-type(2) {
@@ -52,11 +63,11 @@ body {
 
 	a {
 		color: #213547;
+		&:hover {
+			color: #747bff;
+		}
 	}
 
-	a:hover {
-		color: #747bff;
-	}
 
 	button {
 		background-color: #f9f9f9;

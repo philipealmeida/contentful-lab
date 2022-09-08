@@ -1,0 +1,15 @@
+.pdp-wrapper{
+  text-align: left;
+  picture{
+    max-width: 33%;
+  }
+  .description{
+    line-height: 1.6;
+  }
+  display: flex;
+  align-content: center;
+  justify-content:flex;
+  .content-wrapper{
+    padding-left: 4%;
+  }
+}

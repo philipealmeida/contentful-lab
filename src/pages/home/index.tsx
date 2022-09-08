@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Card from '../../components/card';
 import { useContentful } from '../../shared/hooks/useContentful'
 import { Shoes } from '../../shared/types';
 import './Home.scss'
@@ -16,18 +17,9 @@ function Home() {
     <section className="wrapper-shoes">
       <div className="cards" data-title="Shoes">
         {shoes && shoes.map((item) => (
-          <div key={item.name} className="card">
-            <Link to={`/pdp/${item.name}`}>
-              <picture>
-                <img src={item.avatar} alt="xx" />
-              </picture>
-              <div className="row">
-                <p className="card--title">{item.name}</p>
-                <p className="card--price">{item.price}</p>
-              </div>
-              <p className="card--description">{item.description}</p>
-            </Link>
-          </div>
+          <Link className="card-wrapper" key={item.name} to={`/pdp/${item.id}`}>
+           <Card data={item} />
+          </Link>
         ))}
       </div>
 

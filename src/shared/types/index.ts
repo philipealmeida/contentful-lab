@@ -1,8 +1,39 @@
-export type Shoes = {
+export type Shoe = {
   name: string;
+  price: number;
+  image: ImageFile;
+  link?: string;
   description: string;
+}
+
+export type Shoes = {
+  id: string;
+  name: string;
   price: number;
   avatar: string;
+  description: string;
+}
+
+export type RootObject = {
+  fields: Fields;
+  sys: Sys4;
+}
+
+export type ImageFile = {
+  url: string;
+  title: string;
+}
+
+export type Fields = {
+  name: string;
+  description: string;
+  image: Image;
+  price: number;
+}
+
+export type Sys4 = {
+  id: string;
+  type: string;
 }
 
 export type Metadata = {
@@ -63,27 +94,16 @@ export type Fields2 = {
   file: File;
 }
 
+export type DataShoe = {
+  data: DataShoes;
+}
+
+export type DataShoes = {
+  shoes: Shoe;
+}
+
 export type Image = {
   metadata: Metadata;
   sys: Sys;
   fields: Fields2;
 }
-
-export type Fields = {
-  name: string;
-  description: string;
-  image: Image;
-  price: number;
-}
-
-export type Sys4 = {
-  id: string;
-  type: string;
-}
-
-export type RootObject = {
-  fields: Fields;
-  sys: Sys4;
-}
-
-

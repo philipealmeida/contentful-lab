@@ -12,33 +12,34 @@ a{
 	text-decoration: none;
 	color: #fff;
 }
-.card {
+.card-wrapper {
 	width: 33.33%;
-
+}
+.card-content{
 	img {
 		transition: 250ms ease;
 		max-width: 100%;
 	}
-
+	
 	.row {
 		display: flex;
 		margin-top: 0.6rem;
 		text-align: center;
 		justify-content: center;
 	}
-
-	.card--title {
+	
+	&--title {
 		margin: 0;
 		font-size: 1rem;
 	}
 
-	.card--price {
+	&--price {
 		margin: 0;
 		font-size: 1rem;
 		margin-left: 0.7rem;
 	}
 
-	.card--description {
+	&--description {
 		margin-top: 0.3em;
 		font-size: 0.9rem;
 		text-align: center;
@@ -52,13 +53,14 @@ a{
 			transform: scale(1.2);
 		}
 
-		.card--description {
+		&--description {
 
 			visibility: visible;
 			opacity: 1;
 		}
 	}
 }
+
 
 picture {
 	display: flex;
